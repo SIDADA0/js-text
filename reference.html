@@ -21,6 +21,44 @@
 //    year = today.getFullYear();
 //    isLeapYear = (year%4==0 && year%100==0||year%400==0);
 //    document.write("本年"+isLeapYear?"是闰年":"不是闰年");
+
+//    //计算出10!
+//    //n!=n*(n-1)!
+//    方法一
+//    function fac(n) {
+//    var result = 1;
+//    for(var i=1;i<=n;i++){
+//        result = result *i;
+//    }
+//    return result;
+//}
+//console.log(fac(10));
+////    方法二  递归-自己调自己
+//    var n;
+//    function fac2(n) {
+//        if (n == 1) {
+//            return 1;
+//        }
+//        return n * arguments.callee(n - 1);
+//    }
+//    console.log(fac2(10));
+
+//    function print(n) {
+//        for(var i=1;i<=n;i++){
+//            for(var k=1;k<=n-i;k++){
+//                document.write('&nbsp;')
+//            }
+//            for(var j=1;j<=i;j++) {
+//                document.write('*');
+//                document.write('&nbsp;')
+//            }
+//            document.write("<br>")
+//        }
+//    }
+//    print(9);
+
+    //n1-n2+n3
+
 </script>
 </body>
 </html>
