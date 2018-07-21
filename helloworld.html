@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<h1 id="hel">helloworld</h1>-->
+<script>
+//    document.write('<h1>HelloKitty</h1>');
+//    var a=5;//我是注释   var=>variable
+//    var b=a+6;
+//    var c=a+5;
+//    var d;
+//    console.log(b);
+//    console.log(c);
+//    console.log(d);
+//    var aa=5, bb='welcome';
+//    console.log(typeof aa);
+//    console.log(typeof (bb));
+//    alert('hello');
+
+//    if(' '){
+//        console.log(true);
+//    }else {
+//
+//        console.log(false);
+//    }
+
+//    var msg = window.prompt("请输入",'ssss');//弹出框
+//    console.log(msg);
+
+//    null ? console.log(log(true)):console.log(false);
+
+//    var age = window.prompt("输入年龄");
+//    if (age < 18){
+//        console.log('未成年');
+//    }else if(age >=18 && age <50){
+//        console.log('成年');
+//    }else if(age >=50 && age<=80){
+//        console.log('中年');
+//    }else {
+//        console.log('老年');
+//    }
+
+    var  a=-3;
+    switch (a) {
+        case 2:
+            console.log(3);
+            break;
+        case 3:
+            console.log(4);
+            break;
+        case 4:
+            console.log(5);
+            break;
+        default:
+            console.log('未匹配');
+    }
+
+//    for (var  i=1;i<=10;i++){
+//        console.log(i);
+//    }
+
+//    var m = 1;
+//    while(m <= 10){
+//        console.log(m);
+//        m++;
+//    }
+
+//    function  sum(x,y){//形式参数
+//        var result = x * y;
+//        return result;
+//        alert(123)
+////        console.log(x * y);
+//    }
+//    var res = sum(3,4);
+//    console.log(res*2);
+////    sum(3, 4);// 实际参数
+////    sum(5, 4);// 实际参数
+//
+//    var fn = function () {
+//        console.log('fn');
+//    };
+//    fn();
+
+//    var  arr = [5,'xxx', true, undefined, 10];
+//    for (var i=0;i<=arr.length;i++){
+//        console.log(arr[i]);
+//    }
+//
+//    var arr2 = new Array(2,3,4,5);
+//    console.log(arr2);
+//    //new array 后面只有一个数 空数组 表示长度
+
+
+    //对象
+//    var student = {
+//        name :'司大大',
+//        age: 18,
+//        school: '黑大',
+//        coding: function () {
+//            console.log('学习js')
+//        }
+//    };
+//    console.log(student.school);
+//    console.log(student['school']);
+//    student.coding();
+//
+//    for(var p in student){
+//        console.log([p]);
+//        console.log([p]+'---'+student);
+//    }
+//
+//    var obj1 = new Object();
+//    obj1.name = 'san';
+//    obj1.eat = 'xia';
+//    console.log(obj1);
+
+    //ES5
+    //ES6
+//    const b=5;//常量  不变
+//    var a = 5;
+//    function foo() {
+//        a = 6;
+//        console.log('1=='+a);
+//    }
+//    foo();
+//    console.log('2=='+a);
+//
+//    var a =5;
+//    true || (a=6);  //前真后不执行//前假后面会判断、即执行
+//    console.log(a);
+
+//    var name = 'sidaad';
+//    console.log('我是' + name + '哈哈');
+//    console.log('我在"北京天安门"吗');
+//    console.log("我在'北京天安门'吗");
+//    console.log("我在\"北京天安门\"吗");
+
+    //0~36
+/*    0 <= Math.random() <1
+      0 <= Math.random() <37
+      向下取整
+*/
+//    console.log(Math.floor(Math.random()*100)+1);
+
+//    console.log(Math.random());
+//    var lucky = '';
+//    for (var i=0; i<7;i++){
+//        lucky+= Math.floor(Math.random()*37)+' ';
+//    }
+//    document.write('机选号码为'+lucky);
+//    //10~100
+//        console.log(Math.random());
+//        var lucky2 = '';
+//        for (var m=0; m<7;m++){
+//            lucky+= (Math.floor(Math.random()*91)+10)+' ';
+//        }
+//        document.write('机选号码为'+lucky);
+
+//
+//    function  getMax(x,y) {
+//        return x>y?x:y;
+//    }
+//    var x =Math.random();
+//    var y =Math.random();
+//    var max = getMax(x,y);
+////    getMax(Math.random(),Math.random());
+//    document.write('当前随机数是x='+x+',   y='+y+',   最大值是'+max);
+
+
+//    function  getLeapYear(year) {
+//        if(year % 4 == 0 && year % 100 != 0 || year %400 == 0){
+//            return true;
+//        }else {
+//            return false;
+//        }
+//    }
+//    getLeapYear(2016);
+
+//    //函数立即调用 无名，只会被调用一次
+//    (function () {
+//        console.log(123);
+//    })();
+//
+//    //数组
+//    function fn1() {
+//        console.log(arguments[0],arguments[1]);
+//        console.log(arguments);
+//    }
+//    fn1();
+
+//    function foo(num) {
+//        if(num % 3 == 0 && num % 5 == 0 && num % 7 == 0 ){
+//            return true;
+//        }
+//        return false;
+//    }
+//    var arr=[];
+//    for(var i=1;i<=1000;i++){
+//        if(foo(i)){
+//            arr.push(i);
+//        }
+//    }
+//    console.log(arr);
+//
+//    for(var i=0;i<arr.length;i++){
+//        if((i+1) % 6 == 0){
+//            document.write('<br>')
+//        }
+//        document.write(arr[i] +'&nbsp;');
+//    }
+//
+//
+//
+//    function prime(num) {  //100
+//        var bFlag = false;//标志位 false表示不是素数 0/1 yes/no f/t
+//        for(var i =2; i < num; i++){
+//            if(num % i == 0){
+//                bFlag = false;
+//                break;
+//            }else {
+//                bFlag = true;
+//            }
+//        return bFlag;
+//        }
+//    }
+//    var arr[];
+//    for(var i = 100;i <= 1000; i++) {
+//        if (prime(i)){
+//            arr.push(i);
+//        }
+//    }
+
+////    Fibonacci
+//    //递归  == 1
+//    function fibonacci1(n) {
+//        if (n == 1 || n == 2) {
+//            return 1;
+//        }
+//        return fibonacci1(n - 1) + fibonacci1(n - 2);
+//    }
+//
+//    console.log(fibonacci1(7));
+//    //非递归  == 2
+//
+//    function fibonacci2(n) {
+//        var n1 = 1, n2 = 1, sum=0;
+//        for (i = 2; i < n; i++) {
+//            sum = n1 + n2;
+//            n1 = n2;
+//            n2 = sum;
+//        }
+//        return sum;
+//    }
+//    console.log(fibonacci2(7));
+//    //数组 ==  3
+//
+//    function fibonacci3(n) {
+//        var arr = [1,1,2,3,5];
+//        for(var i=2; i<n;i++){
+//            arr[i]=arr[i-1]+arr[i-2];
+//        }
+//        return arr[n-1];
+//    }
+//    console.log(fibonacci3(7));
+
+//    function getPI(n) {
+//        var pi = 0;
+//        for(var i=1;i<=n;i++) {
+//            pi += 4 * Math.pow(-1,n - 1)/(2 * n - 1);
+//        }
+//        return pi;
+//    }
+//    var arr = [100,500,1000,10000];
+//    for(var i = 0;len = arr.length;i<len;i++){
+//    console.log(getPI(i))
+//}?????????????????
+
+//        //一个方法，两个方式
+//        var n = 1;
+//        var timer =  setInterval(function () {
+//            if(n>=5){
+//                clearInterval(timer);
+//            }
+//            console.log(n++);
+//        },1000);
+
+//    //延迟
+//    var n =1;
+//    setTimeout(function () {
+//        console.log(n++)
+//    },1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
