@@ -2,9 +2,204 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>滑入滑出</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        #container{
+            position: relative;
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            transition: all 3s ease;
+        }
+
+        #container:hover #left{
+            display: block;
+            z-index: 1;
+        }
+
+        #container:hover #right{
+            display: block;
+            z-index: 1;
+        }
+
+        #imgs img{
+            display: none;
+        }
+
+        #imgs .selected{
+            display: block;
+        }
+
+        .move{
+            transform: translateX(520px);
+        }
+        #nav {
+            width: 100px;
+            height: 20px;
+            background-color: #000;
+            opacity: .5;
+            border-radius: 2px;
+            position: relative;
+            bottom: 20px;
+            right: -40%;
+        }
+
+        #nav li{
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            float: left;
+            margin: 0 8px;
+            position: relative;
+            top: 5px;
+            left: 12px;
+            cursor: pointer;
+        }
+
+        #nav .nav-selected{
+            background-color: orange;
+            opacity: .8;
+          }
+
+        #left ,#right{
+            width: 25px;
+            height: 25px;
+            background-color: #ffffff;
+            opacity: .4;
+        }
+
+        #left{
+            border-radius:0 15px 15px 0;
+            position: absolute;
+            top: 47%;
+            cursor: pointer;
+            display: none;
+        }
+
+        #right{
+            border-radius: 15px 0 0 15px;
+            position:absolute;
+            left: 95%;
+            bottom: 45%;
+            cursor: pointer;
+            display: none;
+        }
+        #l-selected, #r-selected{
+            text-align: center;
+            color: #000;
+        }
+    </style>
 </head>
 <body>
-
+    <div id="container">
+        <div id="imgs">
+            <div><img src="https://img.alicdn.com/simba/img/TB141PRGmBYBeNjy0FeSuvnmFXa.jpg" class="selected"></div>
+            <div><img src="https://img.alicdn.com/simba/img/TB1gqLNondYBeNkSmLySutfnVXa.jpg"></div>
+            <div><img src="https://img.alicdn.com/simba/img/TB1.P7mlsUrBKNjSZPxSut00pXa.jpg"></div>
+        </div>
+        <ul id="nav">
+            <li class="nav-selected"></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div id="left">
+            <span id="l-selected">&nbsp;&lt</span>
+        </div>
+        <div id="right">
+            <span id="r-selected">&nbsp;&nbsp;&gt</span>
+        </div>
+    </div>
 </body>
+<script>
+    var oContainer = document.getElementById('container');
+    var oImgs = document.getElementById('imgs');
+    var aImg = oImgs.getElementsByTagName('img');
+    var oNav = document.getElementById('nav');
+    var aLi = oNav.getElementsByTagName('li');
+    var oL = document.getElementById('l-selected');
+    var oR = document.getElementById('r-selected');
+    var iNowIndex = 0;
+    var timer = null;
+
+    for(i = 0;i<aLi.length; i++){
+        aLi[i].index = i;
+        aLi.onmouseover = function () {
+            iNowIndex = this.index;
+            changeImg();
+        }
+    }
+
+    oL.onclick = oR.onclick = function () {
+        if (this === oL) {
+            iNowIndex--;
+            if (iNowIndex == -1) {
+                iNowIndex = aLi.length - 1;
+            }
+        } else {
+            iNowIndex++;
+            if (iNowIndex == aLi.length) {
+                iNowIndex = 0;
+            }
+        }
+        changeImg();
+    };
+
+
+    oL.onselectstart = oR.onselectstart = function () {
+        return false;
+    };
+
+
+    oContainer.onmouseover = function () {
+        clearInterval(timer);
+    };
+
+    oContainer.onmouseout = function () {
+        play();
+    };
+
+    play();
+
+    function play() {
+        timer = setInterval(function () {
+            oR.onclick();
+        },1000)
+    }
+
+    function changeImg() {
+        for(i = 0;i<aLi.length;i++){
+            aLi[i].className = '';
+            aImg[i].className = '';
+        }
+        aLi[iNowIndex].className = 'nav-selected';
+        aImg[iNowIndex].className = 'selected';
+        if(aImg.offsetLeft >500){
+
+        }
+
+       /* oContainer.onmouseover = function () {
+             timer2 = setInterval(function () {
+                if(oContainer.offsetLeft >= 520){
+                    clearInterval(timer2);
+                }
+                oImgs.style.left = oImgs.offsetLeft+10+'px';
+            },10000);
+        };*/
+    }
+
+
+
+
+
+</script>
 </html>

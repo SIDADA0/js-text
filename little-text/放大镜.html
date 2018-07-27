@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #small,#big{
+            width: 400px;
+            height: 400px;
+            float: left;
+            position: relative;
+        }
+        #big{
+            overflow: hidden;
+            display: none;
+        }
+
+        #drag{
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            opacity:.5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            filter: alpha(opacity=50);
+        }
+
+
+        #big-img{
+            position: absolute;
+        }
+        #mask{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity = 0);
+        }
+    </style>
+</head>
+<body>
+    <div id="small">
+        <img src="../../fellows24/DOM/13_放大镜/1.jpg" alt="">
+        <div id="drag"></div>
+        <div id="mask"></div>
+    </div>
+        <div id="big">
+            <img src="../../fellows24/DOM/13_放大镜/2.jpg" alt="" id="big-img">
+        </div>
+    <script>
+        var oSmall = document.getElementById('small');
+        var oBig  = document.getElementById('big');
+        var oDrag = document.getElementById('drag');
+        var oBigimg = document.getElementById('big-img');
+
+        oSmall.onmouseover = function () {
+            oDrag.style.display = 'block';
+            oBig.style.display = 'block';
+        };
+
+        oSmall.onmouseout = function () {
+            oDrag.style.display = 'none';
+            oBig.style.display = 'none';
+        };
+
+        oSmall.onmousemove = function (ev) {
+            ev = ev || window.event;
+            var top = ev.clientY - oDrag.offsetHeight / 2;
+            var left = ev.clientX - oDrag.offsetWidth / 2;
+            if (top < 0) {
+                top = 0;
+            }
+            if (left < 0) {
+                left = 0;
+            }
+            var leftMax = oSmall.offsetWidth - oDrag.offsetWidth;
+            var topMax = oSmall.offsetHeight - oDrag.offsetHeight;
+            if (left > leftMax) {
+                left = leftMax;
+            }
+            if (top > topMax) {
+                top = topMax;
+            }
+            //设置drag位置
+            oDrag.style.top = top + 'px';
+            oDrag.style.left = left + 'px';
+
+            //drag移动百分比
+            var dragdistanceX = oDrag.offsetLeft / leftMax;
+            var dragdistanceY = oDrag.offsetTop / topMax;
+
+            //设置大图片距离
+            oBigimg.style.left = -dragdistanceX * (oBigimg.offsetWidth - oBig.offsetWidth) + 'px';
+            oBigimg.style.top = -dragdistanceY * (oBigimg.offsetHeight - oBig.offsetHeight) + 'px';
+        };
+
+    </script>
+</body>
+</html>

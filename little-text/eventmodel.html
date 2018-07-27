@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件模型</title>
+</head>
+<body>
+<script>
+    oDiv1.addEventListener('click',function () {
+        console.log('输出');
+//                e.stopPropagation();
+        window.event.stopPropagation = true;
+    },true);
+
+
+    //事件源
+    //标准浏览器:e.target
+    //早期IE:window.event.src...
+    //事件委托 -----把子元素事件委托给父元素
+    var oL = document.getElementById('li');
+    oL.onclick = function (e) {
+        console.log(e.target.innerHTML);
+    }
+</script>
+</body>
+</html>
