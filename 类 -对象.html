@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类-对象</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //基于面向对象  用方法模拟对象
+    //类
+    function People(name1,age1) {
+        console.log(this);//构造函数  属性写在构造函数
+        this.name = name1;
+        this.age = age1;
+//        this.showName = function () {
+//            //性能低
+//        };
+    }
+
+    //原型
+    People.prototype.showName = function () {         //方法写在原型里
+        alert('名字是'+this.name)
+    };
+    //原型链
+    //    先构造函数中找、再去原型中找
+
+    //实例化对象
+    var p1 = new People('xz',18);
+    var p2 = new People('xx',20);
+    p1.showName();
+    p2.showName();
+
+
+</script>
+</html>

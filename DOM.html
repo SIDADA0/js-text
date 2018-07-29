@@ -45,13 +45,39 @@
 //    for(var i=0;i<child.length;i++){
 //        console.log(child[i].nodeType);
 //    }
+//
+//    function next(elem) {
+//        do{
+//            elem = elem .nextSibling;
+//        }while (elem && elem.nodeType != 1);
+//        return elem;
+//    }
+//
+//    function first(elem) {
+//        elem = elem.firstChild;
+//        if(elem === null){
+//            return null;
+//        }
+//        return elem && elem.nodeType == 1? elem :next(elem);
+//    }
 
-    function next(elem) {
-        do{
-            elem = elem.nextSibling;
-        }while (elem && elem.nodeType != 1);
-        return elem;
+//深拷贝
+    function clone(obj) {
+        var newObj = {};
+        for (var p in obj) {//p属性名
+            if (typeof obj[p] === 'object')
+                newObj[p] = clone(obj[p]);
+            else {
+                newObj[p] = obj[p];
+                //递归 判断属性中有无对象
+//      }  console.log(p + ':' + obj[p]);
+//    newObj[p] = obj[p];
+                return newObj;
+            }
+        }
     }
+
+
 </script>
 </body>
 </html>
